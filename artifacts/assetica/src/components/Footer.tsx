@@ -38,10 +38,10 @@ const Footer = () => (
           </p>
           <div className="flex items-center gap-3 mb-6">
             {[
-              { href: "https://linkedin.com/company/assetica", icon: Linkedin, label: "LinkedIn", isReactIcon: false },
-              { href: "https://instagram.com/assetica", icon: FaInstagram, label: "Instagram", isReactIcon: true },
-              { href: "https://x.com/assetica", icon: FaXTwitter, label: "X", isReactIcon: true },
-              { href: "https://facebook.com/assetica", icon: Facebook, label: "Facebook", isReactIcon: false },
+              { href: "https://www.linkedin.com/company/asseticallc", icon: Linkedin, label: "LinkedIn", isReactIcon: false },
+              { href: "https://www.instagram.com/assetica_net/", icon: FaInstagram, label: "Instagram", isReactIcon: true },
+              { href: "https://x.com/Assetica_net", icon: FaXTwitter, label: "X", isReactIcon: true },
+              { href: "https://www.facebook.com/profile.php?id=61561152382508", icon: Facebook, label: "Facebook", isReactIcon: false },
             ].map(({ href, icon: Icon, label, isReactIcon }) => (
               <a
                 key={label}
