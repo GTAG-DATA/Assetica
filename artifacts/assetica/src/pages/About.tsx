@@ -15,7 +15,7 @@ const reasons = [
   { icon: Target, title: "Comprehensive Valuation Solutions", desc: "Discover Assetica's business valuation services around the world, offering independent valuations for businesses and assets. Ensure compliance and make confident decisions." },
   { icon: Users, title: "Expertise Across Industries", desc: "Our seasoned professionals bring decades of cross-industry expertise to every engagement, from SMEs to Fortune 500 companies across the UAE, UK, and globally." },
   { icon: Award, title: "Regulatory Compliance", desc: "All our valuations adhere to UAE, UK, and international regulatory standards. Our reports are accepted by banks, courts, and regulatory authorities worldwide." },
-  { icon: Lightbulb, title: "Strategic Value Advisory", desc: "We don't just value your business, we help you understand and enhance it. Our strategic insights guide long-term growth and value maximization." },
+  { icon: Lightbulb, title: "Strategic Value Advisory", desc: "We don't just value your business, we help you understand and enhance it. Our strategic insights guide long-term growth and value maximisation." },
 ];
 
 const aboutFaqs = [
@@ -29,11 +29,11 @@ const aboutFaqs = [
   },
   {
     q: "What makes Assetica different from other valuation firms?",
-    a: "Assetica combines deep technical expertise with a genuinely client-focused approach. We are dedicated to securing the optimal price or valuation by co-creating strategies tailored to each client's specific circumstances. Our transparent reporting, personalized consultation, and commitment to accuracy set us apart.",
+    a: "Assetica combines deep technical expertise with a genuinely client-focused approach. We are dedicated to securing the optimal price or valuation by co-creating strategies tailored to each client's specific circumstances. Our transparent reporting, personalised consultation, and commitment to accuracy set us apart.",
   },
   {
     q: "Does Assetica provide valuations for intangible assets?",
-    a: "Yes. Assetica has specialized expertise in valuing intangible assets including intellectual property, brand equity, customer relationships, software, and other non-physical assets. These are often critical components of overall business value.",
+    a: "Yes. Assetica has specialised expertise in valuing intangible assets including intellectual property, brand equity, customer relationships, software, and other non-physical assets. These are often critical components of overall business value.",
   },
   {
     q: "What types of clients does Assetica serve?",
@@ -68,13 +68,32 @@ const aboutFaqSchema = {
   }))
 };
 
+const billAndersonSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bill Anderson",
+  "jobTitle": "Senior Valuation Advisor",
+  "description": "RICS Associate with 30+ years of experience in business valuation across Dubai, UAE and the UK. Specialises in M&A valuations, Golden Visa certifications, DCF modelling, and DIFC/ADGM regulatory frameworks.",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Assetica",
+    "url": "https://assetica.net"
+  },
+  "url": "https://assetica.net/about",
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Professional Certification",
+    "name": "RICS Associate"
+  }
+};
+
 const About = () => (
   <>
     <SEOHead
       title="About Assetica | 30+ Years of Business Valuation Expertise in Dubai"
       description="Assetica brings 30+ years of valuation expertise across Dubai, GCC, UK & Europe. Trusted by 500+ businesses for M&A, due diligence and strategic advisory."
       canonical="/about"
-      schema={[aboutPageSchema, aboutFaqSchema]}
+      schema={[aboutPageSchema, aboutFaqSchema, billAndersonSchema]}
     />
     <div className="min-h-screen" style={{ backgroundColor: "#ffffff" }}>
     <Navbar />
@@ -202,6 +221,27 @@ const About = () => (
         </div>
       </AnimatedSection>
     </div>
+
+    {/* Team section */}
+    <AnimatedSection className="max-w-5xl mx-auto px-4 md:px-8 py-14">
+      <div className="text-center mb-10">
+        <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#4BD1A0" }}>Our Team</span>
+        <h2 className="font-display font-bold text-2xl md:text-3xl mt-2" style={{ color: "#012241" }}>The Experts Behind Your Valuation</h2>
+      </div>
+      <div className="max-w-md mx-auto">
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 text-center">
+          <div className="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4" style={{ background: "#012241" }}>
+            BA
+          </div>
+          <h3 className="font-display font-bold text-lg" style={{ color: "#012241" }}>Bill Anderson</h3>
+          <p className="text-sm font-medium mt-0.5" style={{ color: "#4BD1A0" }}>Senior Valuation Advisor</p>
+          <p className="text-xs text-slate-400 mt-0.5 mb-4">RICS Associate | Dubai, UAE</p>
+          <p className="text-sm text-slate-500 leading-relaxed">
+            Bill leads Assetica's valuation engagements across the UAE and UK, specialising in M&amp;A valuations, Golden Visa certifications, and family office advisory. He brings deep expertise in DCF modelling, market comparables analysis, and regulatory compliance across DIFC, ADGM, and international frameworks.
+          </p>
+        </div>
+      </div>
+    </AnimatedSection>
 
     <FaqSection
       faqs={aboutFaqs}

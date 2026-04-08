@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactForm from "@/components/ContactForm";
+import SEOHead from "@/components/SEOHead";
 import { blogPosts } from "./Blog";
 
 const BlogPost = () => {
@@ -21,7 +22,49 @@ const BlogPost = () => {
     </div>
   );
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "url": `https://assetica.net/blog/${post.slug}`,
+    "datePublished": post.date,
+    "image": post.image,
+    "author": {
+      "@type": "Person",
+      "name": "Bill Anderson",
+      "jobTitle": "Senior Valuation Advisor",
+      "worksFor": { "@type": "Organization", "name": "Assetica", "url": "https://assetica.net" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Assetica",
+      "url": "https://assetica.net",
+      "logo": "https://assetica.net/logo.png"
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `https://assetica.net/blog/${post.slug}` }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://assetica.net" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://assetica.net/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://assetica.net/blog/${post.slug}` }
+    ]
+  };
+
   return (
+    <>
+    <SEOHead
+      title={post.title}
+      description={post.excerpt}
+      canonical={`/blog/${post.slug}`}
+      ogType="article"
+      ogImage={post.image}
+      schema={[blogPostingSchema, breadcrumbSchema]}
+    />
     <div className="min-h-screen" style={{ backgroundColor: "#ffffff" }}>
       <Navbar />
       <div className="pt-[72px] px-4 md:px-8">
@@ -53,6 +96,15 @@ const BlogPost = () => {
                 .replace(/<p>/g, '<p style="color:#64748b;line-height:1.75;margin-bottom:1rem;font-size:0.9375rem;">')
               }}
             />
+            <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0" style={{ background: "#012241" }}>
+                BA
+              </div>
+              <div>
+                <p className="text-sm font-semibold" style={{ color: "#012241" }}>Bill Anderson</p>
+                <p className="text-xs text-slate-400">Senior Valuation Advisor | RICS Associate, Assetica</p>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
@@ -88,6 +140,7 @@ const BlogPost = () => {
 
       <Footer />
     </div>
+    </>
   );
 };
 

@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /*.json$
 
 # Explicitly allow Google crawlers
 User-agent: Googlebot

@@ -71,7 +71,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-display font-semibold mb-5 text-[#4BD1A0]">Our Services</h4>
+          <h3 className="font-display font-semibold mb-5 text-[#4BD1A0]">Our Services</h3>
           <div className="grid grid-cols-1 gap-2.5">
             {services.map((s) => (
               <Link
@@ -87,7 +87,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-display font-semibold mb-5 text-[#4BD1A0]">Insights</h4>
+          <h3 className="font-display font-semibold mb-5 text-[#4BD1A0]">Insights</h3>
           <div className="grid grid-cols-1 gap-2.5">
             {insights.map((item) => (
               <Link
@@ -103,7 +103,7 @@ const Footer = () => (
         </div>
 
         <div>
-          <h4 className="font-display font-semibold mb-5 text-[#4BD1A0]">Quick Links</h4>
+          <h3 className="font-display font-semibold mb-5 text-[#4BD1A0]">Quick Links</h3>
           <div className="flex flex-col gap-2.5 mb-8">
             {[
               { name: "Home", path: "/" },

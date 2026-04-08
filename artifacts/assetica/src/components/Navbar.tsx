@@ -37,7 +37,7 @@ const Navbar = () => {
           <img src={logo} alt="Assetica" className="h-9 w-auto" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.path}

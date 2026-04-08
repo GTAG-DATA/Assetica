@@ -30,7 +30,7 @@ const whyChoose = [
   { icon: Users, title: "Expertise Across Industries", desc: "Our seasoned professionals bring decades of cross-industry experience to deliver accurate valuations." },
   { icon: TrendingUp, title: "Advanced Analytical Tools", desc: "We leverage cutting-edge financial modelling and data analytics for precise valuations." },
   { icon: Award, title: "Regulatory Compliance", desc: "All valuations are conducted in full compliance with UAE, UK and international standards." },
-  { icon: Star, title: "Personalized Consultation", desc: "Every client receives a dedicated valuation specialist and tailored service approach." },
+  { icon: Star, title: "Personalised Consultation", desc: "Every client receives a dedicated valuation specialist and tailored service approach." },
   { icon: CheckCircle, title: "Timely & Transparent Reporting", desc: "Clear, actionable reports delivered on time, so you can make decisions with confidence." },
 ];
 
@@ -45,7 +45,7 @@ const homepageFaqs = [
   },
   {
     q: "How does Assetica conduct a business valuation?",
-    a: "Our business valuation process involves a comprehensive approach, analyzing your financial statements, historical performance data, industry trends, current market conditions, competitive landscape, and other key factors to deliver a thorough and accurate assessment of your company's worth.",
+    a: "Our business valuation process involves a comprehensive approach, analysing your financial statements, historical performance data, industry trends, current market conditions, competitive landscape, and other key factors to deliver a thorough and accurate assessment of your company's worth.",
   },
   {
     q: "What industries does Assetica cover for valuation services?",
@@ -53,11 +53,11 @@ const homepageFaqs = [
   },
   {
     q: "Does Assetica provide valuations for mergers and acquisitions?",
-    a: "Yes. Our buyer and seller negotiation service and financial modelling expertise make Assetica an ideal partner for M&A transactions. We facilitate successful negotiations during mergers, acquisitions, or sales, ensuring favorable outcomes for all parties.",
+    a: "Yes. Our buyer and seller negotiation service and financial modelling expertise make Assetica an ideal partner for M&A transactions. We facilitate successful negotiations during mergers, acquisitions, or sales, ensuring favourable outcomes for all parties.",
   },
   {
     q: "How do I get started with Assetica's valuation services?",
-    a: "Getting started is simple, contact us via phone at +971 52 155 1198, email info@assetica.net, or fill in our contact form. We offer free initial consultations and most quote requests receive a response within one business day.",
+    a: "Getting started is straightforward: contact us via phone at +971 52 155 1198, email info@assetica.net, or fill in our contact form. We offer free initial consultations and most quote requests receive a response within one business day.",
   },
 ];
 
@@ -110,12 +110,7 @@ const webSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Assetica",
-  "url": "https://assetica.net",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://assetica.net/services?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "url": "https://assetica.net"
 };
 
 const homepageFaqSchema = {
@@ -351,7 +346,7 @@ const Index = () => (
             Professional Business Valuation Services in Dubai
           </h2>
           <p className="text-slate-500 text-sm leading-relaxed mb-6">
-            Explore our specialized business valuation services designed to empower your financial decisions, from initial consultations to comprehensive valuations.
+            Explore our specialised business valuation services designed to empower your financial decisions, from initial consultations to comprehensive valuations.
           </p>
           <Link
             to="/services"
@@ -463,7 +458,7 @@ const Index = () => (
           <div className="text-center mb-8">
             <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Get Started</p>
             <h2 className="font-display font-bold text-2xl md:text-3xl mb-2" style={{ color: "#012241" }}>
-              Unlock the Potential of Your Business
+              Request a Free Valuation Consultation
             </h2>
             <p className="text-slate-500 text-sm max-w-md mx-auto">
               Please take a moment to fill out the form and one of our valuation experts will get back to you shortly.
