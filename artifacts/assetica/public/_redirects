@@ -1,5 +1,14 @@
 # www → non-www (308 permanent)
 https://www.assetica.net/* https://assetica.net/:splat 308
 
+# Old site URL redirects (301 permanent)
+/strategic-value-advisory /services/strategic-value-advisory 301
+/due-diligence-services /services/due-diligence 301
+/business-financial-valuation /services/business-valuation 301
+/business-modeling /services/business-planning 301
+/company-formation-incorporation /services/business-structuring 301
+/machinery-and-equipment-valuation /services 301
+/profile/* / 301
+
 # SPA fallback — must be last
 /* /index.html 200

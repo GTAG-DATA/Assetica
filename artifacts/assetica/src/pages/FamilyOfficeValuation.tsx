@@ -41,14 +41,14 @@ const valuationTypes = [
   {
     icon: Users,
     title: "DIFC & ADGM Structure Valuation",
-    desc: "Specialist valuations for businesses and investment vehicles held within DIFC or ADGM structures — formatted for compliance with DFSA and FSRA requirements.",
+    desc: "Specialist valuations for businesses and investment vehicles held within DIFC or ADGM structures, formatted for compliance with DFSA and FSRA requirements.",
   },
 ];
 
 const whyPoints = [
   { num: "01", title: "Confidentiality by design", desc: "All engagements are handled under strict NDA. No information is shared with third parties. Your family's financial affairs remain entirely private." },
   { num: "02", title: "Principal-level relationship", desc: "You deal directly with senior valuers, not junior associates. Assetica's principals lead every family office engagement personally." },
-  { num: "03", title: "Multi-jurisdiction expertise", desc: "UAE, UK, GCC and European regulatory frameworks handled by a single team — no need to coordinate between multiple advisors across borders." },
+  { num: "03", title: "Multi-jurisdiction expertise", desc: "UAE, UK, GCC and European regulatory frameworks handled by a single team, with no need to coordinate between multiple advisors across borders." },
   { num: "04", title: "Defensible to any authority", desc: "Our reports are prepared to withstand challenge from UAE FTA, HMRC, DFSA and international tax and legal authorities." },
 ];
 
@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     q: "How does Assetica handle cross-border family office valuations?",
-    a: "Many UAE family offices hold business interests across multiple jurisdictions — Dubai, London, Riyadh, Geneva and Singapore are common combinations. Assetica provides a single-team, multi-jurisdiction valuation service that applies consistent methodology across all asset locations while ensuring compliance with the specific regulatory requirements of each territory. This eliminates the need for a family office to coordinate between separate advisors in each country.",
+    a: "Many UAE family offices hold business interests across multiple jurisdictions: Dubai, London, Riyadh, Geneva and Singapore are common combinations. Assetica provides a single-team, multi-jurisdiction valuation service that applies consistent methodology across all asset locations while ensuring compliance with the specific regulatory requirements of each territory. This eliminates the need for a family office to coordinate between separate advisors in each country.",
   },
   {
     q: "What valuation methodology does Assetica use for private business holdings?",
@@ -75,7 +75,7 @@ const faqs = [
   },
   {
     q: "How does Assetica protect the confidentiality of family office clients?",
-    a: "Confidentiality is the cornerstone of Assetica's family office service. All engagements begin with a comprehensive NDA. Client information is handled exclusively by the lead valuer and senior team members — never by junior staff or outsourced parties. We do not disclose client identities, portfolio details or valuation outcomes to any third party under any circumstances. Our principals operate on a relationship-first basis, where the privacy and discretion expected by UHNWI and family office clients is built into every aspect of our service.",
+    a: "Confidentiality is the cornerstone of Assetica's family office service. All engagements begin with a comprehensive NDA. Client information is handled exclusively by the lead valuer and senior team members, never by junior staff or outsourced parties. We do not disclose client identities, portfolio details or valuation outcomes to any third party under any circumstances. Our principals operate on a relationship-first basis, where the privacy and discretion expected by UHNWI and family office clients is built into every aspect of our service.",
   },
   {
     q: "Does Assetica provide valuations for succession planning and generational wealth transfer?",
@@ -134,11 +134,11 @@ export default function FamilyOfficeValuation() {
       <div className="min-h-screen" style={{ backgroundColor: "#ffffff" }}>
         <Navbar />
 
-        {/* ── Hero — split layout, no full-bleed ── */}
+        {/* Hero: split layout, no full-bleed */}
         <div className="pt-[72px]">
           <div className="grid lg:grid-cols-2 min-h-[580px]">
 
-            {/* Left — dark content panel */}
+            {/* Left: dark content panel */}
             <div className="flex flex-col justify-center px-8 md:px-14 py-16" style={{ backgroundColor: "#012241" }}>
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -196,7 +196,7 @@ export default function FamilyOfficeValuation() {
               </div>
             </div>
 
-            {/* Right — image with floating card */}
+            {/* Right: image with floating card */}
             <div className="relative hidden lg:block">
               <img src={heroImg} alt="Family office boardroom Dubai" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#012241]/20" />
@@ -235,7 +235,7 @@ export default function FamilyOfficeValuation() {
                   Family offices manage complex, multi-generational wealth across multiple jurisdictions. Standard valuation firms lack the <span className="text-[#012241] font-semibold">discretion, breadth, and cross-border depth</span> that UHNWI principals require.
                 </p>
                 <p className="text-slate-500 text-base leading-relaxed mt-5">
-                  Assetica works exclusively at the principal level — directly with family principals, trustees, and their legal counsel. We bring the same rigour applied to institutional transactions to every family office mandate, with the confidentiality and bespoke service that private wealth demands.
+                  Assetica works exclusively at the principal level, directly with family principals, trustees, and their legal counsel. We bring the same rigour applied to institutional transactions to every family office mandate, with the confidentiality and bespoke service that private wealth demands.
                 </p>
               </div>
             </div>
@@ -269,14 +269,14 @@ export default function FamilyOfficeValuation() {
           </div>
         </div>
 
-        {/* ── Why Assetica — numbered list with image ── */}
+        {/* Why Assetica: numbered list with image */}
         <div className="py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <AnimatedSection>
               <div>
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Why Assetica</p>
                 <h2 className="font-display font-bold text-[#012241] text-2xl md:text-3xl leading-snug mb-10">
-                  What family office principals expect — and what we deliver
+                  What family office principals expect, and what we deliver
                 </h2>
                 <div className="space-y-8">
                   {whyPoints.map((pt) => (
@@ -366,7 +366,7 @@ export default function FamilyOfficeValuation() {
               <div className="text-center mb-10">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">FAQs</p>
                 <h2 className="font-display font-bold text-[#012241] text-2xl md:text-3xl">
-                  Family Office Valuation — Common Questions
+                  Family Office Valuation: Common Questions
                 </h2>
               </div>
             </AnimatedSection>

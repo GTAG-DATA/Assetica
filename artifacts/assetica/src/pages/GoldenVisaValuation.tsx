@@ -177,7 +177,7 @@ export default function GoldenVisaValuation() {
         {/* ── Hero ── */}
         <div className="pt-[72px] px-4 md:px-8">
           <div className="relative rounded-3xl overflow-hidden" style={{ height: "clamp(420px, 68vh, 640px)" }}>
-            <img src={heroImg} alt="Dubai skyline — UAE Golden Visa business valuation" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+            <img src={heroImg} alt="Dubai skyline, UAE Golden Visa business valuation" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-br from-[#012241]/80 via-[#012241]/70 to-[#012241]/50" />
 
             <div className="relative h-full flex flex-col justify-center px-6 md:px-14 max-w-4xl">
@@ -188,7 +188,7 @@ export default function GoldenVisaValuation() {
                 className="inline-flex items-center gap-2 bg-[#4BD1A0]/20 border border-[#4BD1A0]/40 rounded-full px-4 py-1.5 mb-6 w-fit"
               >
                 <span className="w-2 h-2 rounded-full bg-[#4BD1A0] animate-pulse" />
-                <span className="text-[#4BD1A0] text-xs font-semibold tracking-wide uppercase">UAE Golden Visa — Investor Category</span>
+                <span className="text-[#4BD1A0] text-xs font-semibold tracking-wide uppercase">UAE Golden Visa: Investor Category</span>
               </motion.div>
 
               <motion.h1
@@ -252,7 +252,7 @@ export default function GoldenVisaValuation() {
                 The UAE Golden Visa is a long-term residency scheme granting 5 or 10 year renewable residency to qualifying investors, business owners, skilled professionals and entrepreneurs. For the <strong className="text-slate-700">business owner and investor category</strong>, the General Directorate of Residency and Foreigners Affairs (GDRFA) requires an independent, certified valuation confirming the business value meets the <strong className="text-slate-700">AED 2,000,000 threshold</strong>.
               </p>
               <p className="text-slate-500 leading-relaxed mb-6">
-                Unlike standard residency visas, the Golden Visa is not tied to an employer and provides long-term security for you and your family. Assetica prepares the certified valuation reports required to support your application — prepared to the exact format expected by UAE authorities.
+                Unlike standard residency visas, the Golden Visa is not tied to an employer and provides long-term security for you and your family. Assetica prepares the certified valuation reports required to support your application, in the exact format expected by UAE authorities.
               </p>
               <div className="flex flex-wrap gap-2">
                 {["10-Year Renewable Residency", "Family Sponsorship", "No Employer Tie", "UAE-Wide Coverage"].map((tag) => (
@@ -417,7 +417,7 @@ export default function GoldenVisaValuation() {
               <div className="text-center mb-10">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2">Common Questions</p>
                 <h2 className="font-display font-bold text-[#012241] text-2xl md:text-3xl">
-                  UAE Golden Visa Valuation — FAQs
+                  UAE Golden Visa Valuation: FAQs
                 </h2>
               </div>
             </AnimatedSection>
@@ -434,7 +434,7 @@ export default function GoldenVisaValuation() {
                 Get your Golden Visa valuation in 5–7 days
               </h2>
               <p className="text-slate-500 text-sm max-w-xl mx-auto">
-                Book a free consultation and we'll confirm your eligibility, outline the documentation required, and provide a fixed-price quote — all within one business day.
+                Book a free consultation and we'll confirm your eligibility, outline the documentation required, and provide a fixed-price quote, all within one business day.
               </p>
             </AnimatedSection>
           </div>

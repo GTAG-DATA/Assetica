@@ -11,7 +11,7 @@ const heroImg = "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?au
 const contactFaqs = [
   {
     q: "How quickly will Assetica respond to my enquiry?",
-    a: "We aim to respond to all enquiries within one business day. For urgent valuation requirements, please call us directly at +971 52 155 1198 and we will prioritize your request.",
+    a: "We aim to respond to all enquiries within one business day. For urgent valuation requirements, please call us directly at +971 52 155 1198 and we will prioritise your request.",
   },
   {
     q: "Is there a charge for an initial consultation?",

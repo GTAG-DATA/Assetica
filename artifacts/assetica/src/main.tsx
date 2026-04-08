@@ -8,3 +8,11 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </HelmetProvider>
 );
+
+// Remove SSG pre-render content once React mounts
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    const el = document.getElementById('seo-prerender');
+    if (el) el.remove();
+  });
+});

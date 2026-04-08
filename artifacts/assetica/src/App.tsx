@@ -13,6 +13,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import GoldenVisaValuation from "@/pages/GoldenVisaValuation";
 import FamilyOfficeValuation from "@/pages/FamilyOfficeValuation";
 import NotFound from "@/pages/NotFound";
+import BlogCategory from "@/pages/BlogCategory";
 import Admin from "@/pages/Admin";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
@@ -26,6 +27,12 @@ function ScrollToTop() {
   const { pathname } = useLocation();
   useLayoutEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }, [pathname]);
   return null;
+}
+
+function ConditionalWhatsApp() {
+  const { pathname } = useLocation();
+  if (pathname === "/admin") return null;
+  return <WhatsAppButton />;
 }
 
 function App() {
@@ -45,10 +52,11 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/golden-visa-valuation" element={<GoldenVisaValuation />} />
           <Route path="/family-office-valuation" element={<FamilyOfficeValuation />} />
+          <Route path="/blog/category/:category" element={<BlogCategory />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <WhatsAppButton />
+        <ConditionalWhatsApp />
       </BrowserRouter>
     </QueryClientProvider>
   );
