@@ -189,7 +189,7 @@ const baseHtml = readFileSync(join(distDir, 'index.html'), 'utf-8');
 
 function buildPreRenderBlock(html) {
   if (!html) return '';
-  return `\n    <div id="seo-prerender" style="font-family:system-ui,sans-serif;color:#1e293b;background:#fff;padding:24px 32px;max-width:960px;margin:0 auto">${html}</div>`;
+  return `\n    <div id="seo-prerender" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0">${html}</div>`;
 }
 
 function generateHtml(page, preRenderHtml = '') {
