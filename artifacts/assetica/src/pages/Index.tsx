@@ -57,7 +57,7 @@ const homepageFaqs = [
   },
   {
     q: "How do I get started with Assetica's valuation services?",
-    a: "Getting started is straightforward: contact us via phone at +971 52 155 1198, email info@assetica.net, or fill in our contact form. We offer free initial consultations and most quote requests receive a response within one business day.",
+    a: "Getting started is straightforward: contact us via phone at +971 52 979 8302, email info@assetica.net, or fill in our contact form. We offer free initial consultations and most quote requests receive a response within one business day.",
   },
 ];
 
@@ -68,7 +68,7 @@ const organizationSchema = {
   "url": "https://assetica.net",
   "logo": "https://assetica.net/logo.png",
   "description": "Independent business valuation firm in Dubai, UAE & UK offering M&A advisory, due diligence, financial modelling and strategic advisory services.",
-  "telephone": "+971521551198",
+  "telephone": "+971529798302",
   "email": "info@assetica.net",
   "address": {
     "@type": "PostalAddress",
@@ -83,7 +83,7 @@ const localBusinessSchema = {
   "@type": "ProfessionalService",
   "name": "Assetica",
   "url": "https://assetica.net",
-  "telephone": "+971521551198",
+  "telephone": "+971529798302",
   "email": "info@assetica.net",
   "priceRange": "£££",
   "description": "Assetica provides independent business valuation, due diligence, financial modelling and M&A advisory services in Dubai, UAE, UK and Europe.",
@@ -127,12 +127,13 @@ const Index = () => (
   <>
     <SEOHead
       title="Business Valuation Services in Dubai, UAE & UK | Assetica"
-      description="Assetica, independent business valuation firm in Dubai & UK. Expert valuations for M&A, due diligence, tax, financial modelling and strategic advisory across UAE, GCC & Europe."
+      description="Independent business valuation firm in Dubai and UK. Expert M&A valuations, due diligence, financial modelling and advisory across UAE, GCC and Europe."
       canonical="/"
       schema={[organizationSchema, localBusinessSchema, webSiteSchema, homepageFaqSchema]}
     />
     <div className="min-h-screen" style={{ backgroundColor: "#ffffff" }}>
     <Navbar />
+    <main>
 
     {/* Hero Card */}
     <div className="pt-[72px] px-4 md:px-8">
@@ -141,6 +142,10 @@ const Index = () => (
           src={heroImg}
           alt="Expert Business Valuation Services in Dubai"
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          fetchPriority="high"
+          loading="eager"
+          width="1800"
+          height="1200"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#012241]/60 via-[#012241]/65 to-[#012241]/80" />
 
@@ -188,6 +193,7 @@ const Index = () => (
             </Link>
             <Link
               to="/services"
+              aria-label="Explore Assetica's business valuation services"
               className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-white/25 transition-colors"
             >
               Explore Services
@@ -198,7 +204,7 @@ const Index = () => (
         <div className="absolute bottom-5 left-6 flex items-center gap-3">
           <div className="flex -space-x-2">
             {[officeImg, meetingImg].map((src, i) => (
-              <img key={i} src={src} alt="" className="w-8 h-8 rounded-full object-cover border-2 border-white" />
+              <img key={i} src={src} alt="" className="w-8 h-8 rounded-full object-cover border-2 border-white" width="32" height="32" />
             ))}
           </div>
           <span className="text-white/70 text-xs">30+ years combined experience</span>
@@ -236,9 +242,9 @@ const Index = () => (
           <div className="rounded-2xl p-8 h-full min-h-[280px] flex flex-col justify-between" style={{ backgroundColor: "#012241" }}>
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#4BD1A0" }}>Business Valuation</p>
-              <h3 className="text-white font-display font-bold text-xl leading-snug">
+              <p className="text-white font-display font-bold text-xl leading-snug">
                 Independent valuations for businesses and assets, ensuring compliance and confident decisions.
-              </h3>
+              </p>
             </div>
             <div className="mt-8 flex items-center gap-2">
               <div className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "#4BD1A0" }} />
@@ -249,7 +255,7 @@ const Index = () => (
 
         <AnimatedSection delay={0.1} className="md:col-span-1">
           <div className="relative rounded-2xl overflow-hidden min-h-[280px]">
-            <img src={cityDubaiImg} alt="Dubai business district" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+            <img src={cityDubaiImg} alt="Dubai business district" className="absolute inset-0 w-full h-full object-cover pointer-events-none" loading="lazy" width="900" height="600" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#012241]/50 via-black/10 to-transparent" />
             <div className="absolute top-4 left-4">
               <span className="bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-semibold px-3 py-1.5 rounded-full">Dubai &amp; Global</span>
@@ -365,7 +371,7 @@ const Index = () => (
                 className="group relative rounded-2xl overflow-hidden block"
                 style={{ height: 320 }}
               >
-                <img src={svc.image} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <img src={svc.image} alt={svc.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" width="900" height="600" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#012241]/90 via-[#012241]/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <div className="flex items-end justify-between gap-3">
@@ -389,7 +395,7 @@ const Index = () => (
     <div className="px-4 md:px-8 pb-8">
       <AnimatedSection>
         <div className="relative rounded-2xl overflow-hidden" style={{ backgroundColor: "#012241" }}>
-          <img src={meetingImg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" />
+          <img src={meetingImg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" loading="lazy" width="900" height="600" />
           <div className="relative grid md:grid-cols-2 gap-10 items-center px-8 md:px-16 py-14">
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#4BD1A0" }}>Get to Know Us</p>
@@ -431,7 +437,7 @@ const Index = () => (
     <div className="px-4 md:px-8 pb-8">
       <AnimatedSection>
         <div className="relative rounded-2xl overflow-hidden h-48 md:h-56">
-          <img src={cityDubaiImg} alt="Dubai skyline, business valuation hub" className="w-full h-full object-cover" />
+          <img src={cityDubaiImg} alt="Dubai skyline, business valuation hub" className="w-full h-full object-cover" loading="lazy" width="900" height="600" />
           <div className="absolute inset-0 bg-[#012241]/55" />
           <div className="absolute inset-0 flex items-center justify-center text-center px-6">
             <div>
@@ -469,6 +475,7 @@ const Index = () => (
       </AnimatedSection>
     </div>
 
+    </main>
     <Footer />
   </div>
   </>

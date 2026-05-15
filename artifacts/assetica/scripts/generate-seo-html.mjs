@@ -43,21 +43,21 @@ const sitewideSchemas = [
     logo: `${BASE_URL}/logo.png`,
     description:
       'Independent business valuation firm in Dubai, UAE & UK offering M&A advisory, due diligence, financial modelling and strategic advisory services.',
-    telephone: '+971521551198',
+    telephone: '+971529798302',
     email: 'info@assetica.net',
     address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
-    sameAs: ['https://www.linkedin.com/company/assetica'],
+    sameAs: [
+      'https://www.linkedin.com/company/asseticallc',
+      'https://www.instagram.com/assetica_net/',
+      'https://x.com/Assetica_net',
+      'https://www.facebook.com/profile.php?id=61561152382508',
+    ],
   },
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Assetica',
     url: BASE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${BASE_URL}/services?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   },
 ];
 
@@ -130,16 +130,23 @@ function itemListSchema(name, items) {
   };
 }
 
-function blogPostingSchema({ title, excerpt, slug, datePublished }) {
+function blogPostingSchema({ title, excerpt, slug, datePublished, image }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: title,
     description: excerpt,
     url: `${BASE_URL}/blog/${slug}`,
+    image: image || `${BASE_URL}/opengraph.jpg`,
     datePublished,
     dateModified: new Date().toISOString().split('T')[0],
-    author: { '@type': 'Person', name: 'Bill Anderson', jobTitle: 'Senior Valuation Advisor', worksFor: { '@type': 'Organization', name: 'Assetica', url: BASE_URL } },
+    author: {
+      '@type': 'Person',
+      name: 'Bill Anderson',
+      jobTitle: 'Senior Valuation Advisor',
+      sameAs: 'https://www.linkedin.com/company/asseticallc',
+      worksFor: { '@type': 'Organization', name: 'Assetica', url: BASE_URL },
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Assetica',
@@ -153,7 +160,8 @@ function blogPostingSchema({ title, excerpt, slug, datePublished }) {
 
 function buildSeoBlock({ title, description, canonical, noIndex = false, schemas = [], ogType = 'website' }) {
   const fullTitle = title.includes('Assetica') ? title : `${title} | Assetica`;
-  const canonicalUrl = canonical === '/' ? `${BASE_URL}/` : `${BASE_URL}${canonical}`;
+  // Always use trailing slash — Cloudflare Pages 308-redirects non-trailing-slash URLs
+  const canonicalUrl = canonical === '/' ? `${BASE_URL}/` : `${BASE_URL}${canonical}/`;
   const robots = noIndex ? 'noindex, nofollow' : 'index, follow';
   const safeTitle = escapeHtml(fullTitle);
   const safeDesc = escapeHtml(description);
@@ -218,7 +226,7 @@ const localBusinessSchema = {
   '@type': 'ProfessionalService',
   name: 'Assetica',
   url: BASE_URL,
-  telephone: '+971521551198',
+  telephone: '+971529798302',
   email: 'info@assetica.net',
   priceRange: '£££',
   description:
@@ -243,7 +251,7 @@ const staticRoutes = [
     path: '/',
     title: 'Independent Business Valuation Firm | Dubai, UAE & UK | Assetica',
     description:
-      'Assetica, independent business valuation firm in Dubai & UK. Expert valuations for M&A, due diligence, tax, financial modelling and strategic advisory across UAE, GCC & Europe.',
+      'Independent business valuation firm in Dubai and UK. Expert M&A valuations, due diligence, financial modelling and advisory across UAE, GCC and Europe.',
     canonical: '/',
     schemas: [
       localBusinessSchema,
@@ -272,6 +280,7 @@ const staticRoutes = [
         name: 'Bill Anderson',
         jobTitle: 'Senior Valuation Advisor',
         description: 'RICS Associate with expertise in M&A valuations, Golden Visa certification, family office advisory, and DCF modelling across the UAE, GCC, and UK.',
+        sameAs: 'https://www.linkedin.com/company/asseticallc',
         worksFor: { '@type': 'Organization', name: 'Assetica', url: BASE_URL },
         address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
         url: `${BASE_URL}/about`,
@@ -284,9 +293,9 @@ const staticRoutes = [
   },
   {
     path: '/services',
-    title: 'Business Valuation & Advisory Services Dubai | Assetica',
+    title: 'Business Valuation & M&A Advisory Services Dubai UAE | Assetica',
     description:
-      'Expert business valuation, due diligence, financial modelling, tax valuation and strategic advisory in Dubai, UAE, GCC, UK & Europe. Free consultation.',
+      'Expert business valuation, company valuation, M&A advisory, due diligence and financial modelling in Dubai, UAE, GCC, UK & Europe. Free consultation.',
     canonical: '/services',
     schemas: [
       {
@@ -352,7 +361,7 @@ const staticRoutes = [
         mainEntity: {
           '@type': 'ProfessionalService',
           name: 'Assetica',
-          telephone: '+971521551198',
+          telephone: '+971529798302',
           email: 'info@assetica.net',
           address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
         },
@@ -395,41 +404,22 @@ const staticRoutes = [
   },
   {
     path: '/golden-visa-valuation',
-    title: 'Golden Visa Business Valuation UAE | GDRFA-Compliant | Assetica',
+    title: 'Golden Visa Business Valuation Dubai UAE | GDRFA-Compliant | Assetica',
     description:
-      'Certified business valuation for UAE Golden Visa applications. GDRFA-accepted reports in 5–7 days for business owners and investors. AED 2M+ threshold confirmed. Free consultation.',
+      'Certified business valuation for UAE Golden Visa in Dubai. GDRFA-accepted reports in 5-7 days for business owners and investors. AED 2M+ threshold confirmed. Free consultation.',
     canonical: '/golden-visa-valuation',
-    schemas: [
-      serviceSchema(
-        'Golden Visa Business Valuation UAE',
-        'Certified business valuation for UAE Golden Visa applications. GDRFA-accepted independent reports in 5–7 days for business owners and investors.',
-        `${BASE_URL}/golden-visa-valuation`
-      ),
-      faqSchema([
-        { q: 'What is the minimum business valuation for UAE Golden Visa?', a: 'The UAE Golden Visa for business owners requires a minimum business valuation of AED 2 million (approximately USD 545,000). Assetica provides GDRFA-accepted certified valuation reports confirming this threshold.' },
-        { q: 'How long does a Golden Visa valuation report take?', a: 'Assetica typically delivers certified Golden Visa valuation reports within 5–7 business days, depending on the complexity of the business and availability of financial records.' },
-        { q: 'Which authority accepts the business valuation for UAE Golden Visa?', a: 'The General Directorate of Residency and Foreigners Affairs (GDRFA) in Dubai, and the Federal Authority for Identity and Citizenship (ICA) for other emirates, accept certified business valuation reports for Golden Visa applications.' },
-        { q: 'What documents are needed for a Golden Visa business valuation?', a: 'Typically required: 3 years of audited financial statements, trade license, MOA/AOA, shareholder registry, asset register, and any existing valuations. Assetica will guide you through the full document checklist.' },
-        { q: 'Can a startup qualify for UAE Golden Visa through business valuation?', a: 'Yes, early-stage businesses can qualify if their independently certified valuation meets or exceeds AED 2 million. Assetica uses internationally recognised methodologies including DCF and market comparables appropriate for startups.' },
-        { q: "Does Assetica's valuation report satisfy GDRFA requirements?", a: "Yes. Assetica is an independent certified valuation firm. Our reports follow IFRS and RICS-aligned standards and are structured to satisfy GDRFA and ICA documentation requirements for Golden Visa applications." },
-        { q: 'What valuation methods does Assetica use for Golden Visa reports?', a: 'We use Income Approach (DCF), Market Approach (comparable transactions), and Asset-Based Approach depending on the business type. The most appropriate method, or the best combination, is selected to maximise defensibility before authorities.' },
-        { q: 'Can I get a Golden Visa valuation for a holding company or investment vehicle?', a: 'Yes. Assetica provides valuations for holding companies, SPVs, investment vehicles, and family-owned businesses for Golden Visa purposes. Each structure is assessed on its specific assets, investments, and income profile.' },
-      ]),
-      howToSchema(
-        'How to Get a Business Valuation for UAE Golden Visa',
-        'Step-by-step process to obtain a certified business valuation for UAE Golden Visa application through Assetica.',
-        [
-          { name: 'Initial Consultation', text: 'Contact Assetica for a free consultation. Discuss your business type, ownership structure, and Golden Visa timeline to confirm eligibility and scope.' },
-          { name: 'Document Submission', text: 'Provide financial statements, trade license, MOA, asset register and shareholder information. Assetica will supply a detailed document checklist.' },
-          { name: 'Valuation Analysis', text: 'Our analysts apply DCF, market, and asset-based approaches to determine the independent certified value of your business against the AED 2M threshold.' },
-          { name: 'Certified Report Delivery', text: 'Receive a GDRFA-compliant certified valuation report within 5–7 business days, ready for submission with your Golden Visa application.' },
-        ]
-      ),
-      breadcrumb([
-        { name: 'Home', item: `${BASE_URL}/` },
-        { name: 'Golden Visa Business Valuation', item: `${BASE_URL}/golden-visa-valuation` },
-      ]),
-    ],
+    // Page-specific schemas (FAQPage, HowTo, Service, BreadcrumbList) are managed by
+    // GoldenVisaValuation.tsx via SEOHead — removing here to prevent GSC duplicate schema errors.
+    schemas: [],
+  },
+  {
+    path: '/how-much-is-my-business-worth-dubai',
+    title: 'How Much is My Business Worth in Dubai? | Free Valuation Guide | Assetica',
+    description: 'Find out how much your business is worth in Dubai. Expert valuation guide covering EBITDA multiples, DCF methods and market values for UAE businesses in 2026.',
+    canonical: '/how-much-is-my-business-worth-dubai',
+    // Page-specific schemas (FAQPage, HowTo, BreadcrumbList) are managed by
+    // HowMuchIsMyBusinessWorth.tsx via SEOHead — removing here to prevent GSC duplicate schema errors.
+    schemas: [],
   },
   {
     path: '/family-office-valuation',
@@ -437,27 +427,9 @@ const staticRoutes = [
     description:
       'Independent valuation services for family offices across DIFC, ADGM and the GCC. Portfolio valuation, succession planning, real estate, private equity and estate valuations for HNI and UHNWI families.',
     canonical: '/family-office-valuation',
-    schemas: [
-      serviceSchema(
-        'Family Office Valuation Services UAE',
-        'Independent valuation services for family offices across DIFC, ADGM and GCC. Portfolio, succession, real estate and private equity valuations for HNI and UHNWI families.',
-        `${BASE_URL}/family-office-valuation`
-      ),
-      faqSchema([
-        { q: 'What is a family office valuation?', a: 'A family office valuation is an independent, comprehensive assessment of all assets held by a family office, including private equity stakes, real estate, business interests, investment portfolios and intangible assets. It provides a single net worth picture essential for wealth governance, succession planning and regulatory compliance.' },
-        { q: 'Why do family offices in DIFC and ADGM need independent valuations?', a: 'DIFC and ADGM regulations require family offices to maintain accurate records of asset values for governance, reporting and compliance purposes. Independent valuations also support investment committee decisions, beneficiary distributions and inter-generational wealth transfers.' },
-        { q: 'How often should a family office update its valuations?', a: 'Best practice is annual valuation updates for governance and reporting, with interim updates triggered by major transactions, market dislocations, succession events or regulatory reviews. Assetica offers retainer-based relationships for ongoing valuation support.' },
-        { q: 'Can Assetica value both listed and unlisted assets for a family office?', a: 'Yes. Assetica provides valuations for unlisted private companies, private equity funds, real estate portfolios, operating businesses and illiquid assets alongside guidance on publicly traded holdings. We cover the full spectrum of family office asset classes.' },
-        { q: 'What is the difference between a family office valuation and a business valuation?', a: 'A business valuation focuses on a single operating company. A family office valuation is broader: it consolidates multiple asset classes including businesses, real estate, private equity, bonds and alternative investments into a unified net asset value framework for wealth governance.' },
-        { q: 'Does Assetica handle cross-border family office mandates?', a: 'Yes. Assetica has experience with family offices holding assets across UAE, UK, Saudi Arabia, India, Singapore and Europe. We coordinate multi-jurisdiction valuations and apply locally accepted standards (RICS, IFRS, IVS) in each market.' },
-        { q: 'How does Assetica support succession planning for family offices?', a: 'We provide asset valuations that form the foundation of succession plans, helping families understand current wealth distribution, plan equitable beneficiary allocations, structure trusts and holding companies, and satisfy DIFC Wills Service requirements.' },
-        { q: 'How long does a family office valuation engagement take?', a: 'Scope varies by complexity. A focused mandate (single business or asset class) typically takes 2–4 weeks. A comprehensive multi-asset family office valuation may take 4–10 weeks, including document collection, analysis and report issuance.' },
-      ]),
-      breadcrumb([
-        { name: 'Home', item: `${BASE_URL}/` },
-        { name: 'Family Office Valuation', item: `${BASE_URL}/family-office-valuation` },
-      ]),
-    ],
+    // Page-specific schemas (Service, FAQPage, BreadcrumbList) are managed by
+    // FamilyOfficeValuation.tsx via SEOHead — removing here to prevent GSC duplicate schema errors.
+    schemas: [],
   },
 ];
 
@@ -465,13 +437,17 @@ const staticRoutes = [
 const serviceRoutes = [
   {
     slug: 'business-valuation',
-    title: 'Business Valuation Dubai UAE | Expert Independent Reports | Assetica',
+    title: 'Business Valuation Dubai UAE | Company Valuation Services | Assetica',
+    description:
+      'Independent business and company valuation services in Dubai and UAE. Certified reports for M&A, fundraising, shareholder exits and regulatory compliance. RICS-qualified. 5-10 business days.',
     intro:
       'Assetica delivers independent, credible business valuations for companies across the UAE, UK, GCC, and internationally. Whether you are raising capital, planning an exit, resolving a shareholder dispute, or meeting a regulatory requirement, our valuations provide the rigour and defensibility your situation demands.',
   },
   {
     slug: 'due-diligence',
-    title: 'Due Diligence Services in Dubai & UAE | Assetica',
+    title: 'Due Diligence & M&A Advisory Dubai UAE | Assetica',
+    description:
+      'Comprehensive financial, legal and operational due diligence for M&A transactions and investments across Dubai, UAE, GCC and UK. Minimise risk, maximise deal confidence.',
     intro:
       "Our thorough research and analysis reveal your business's strengths, weaknesses, and growth potential. Assetica's due diligence service minimises risk and maximises investment confidence in every transaction.",
   },
@@ -521,6 +497,13 @@ const serviceRoutes = [
 
 // Blog post routes with BlogPosting schema
 const blogRoutes = [
+  {
+    slug: 'golden-visa-business-valuation-2026-guide',
+    title: 'UAE Golden Visa Business Valuation 2026: The Complete Guide for Entrepreneurs and Investors',
+    excerpt: 'Everything UAE business owners need to know about securing a 10-year Golden Visa through independent, GDRFA-accepted business valuation — the AED 2 million threshold, methodology, timelines, costs, and 2026 rule updates.',
+    datePublished: '2026-04-23',
+    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80',
+  },
   {
     slug: 'navigating-business-valuation-buying-running-business',
     title: 'Navigating the World of Business Valuation: A Step-by-Step Guide to Buying a Running Business',
@@ -824,9 +807,9 @@ console.log('\n🔧  Generating per-route SEO HTML with JSON-LD schemas…\n');
 const staticPreRender = {
   '/': hs('Independent Business Valuation Firm in Dubai, UAE &amp; UK') + authorAttr() + def('Assetica is an independent business valuation firm in Dubai and the UK, providing expert valuations for M&amp;A transactions, due diligence, tax compliance, financial modelling, and strategic advisory services across the UAE, GCC, and Europe.') + intro('Trusted by business owners, investors, and legal counsel across 15+ countries for certified, independent valuations accepted by UAE regulatory authorities, DIFC courts, and international investors.') + h2('UAE Business Valuation — Key Facts') + dataTable('UAE Business Valuation Market Reference (Assetica, 2026)', ['Metric', 'Figure', 'Source / Notes'], [['UAE corporate tax rate', '9%', 'UAE FTA, effective June 2023'], ['Golden Visa minimum business value', 'AED 2,000,000', 'GDRFA / ICA requirement'], ['Typical UAE SME valuation timeline', '2–4 weeks', 'Assetica operational benchmark'], ['UAE EBITDA multiples — SME range', '3x – 8x', 'Sector-dependent; Assetica 2026'], ['DIFC registered entities', '6,500+', 'DIFC Annual Report 2024'], ['UAE SMEs as % of businesses', '94%', 'UAE Ministry of Economy']]) + h2('Our Services') + intro('Assetica provides: <a href="https://assetica.net/services/business-valuation" style="color:#012241">Business Valuation</a>, <a href="https://assetica.net/services/due-diligence" style="color:#012241">Due Diligence</a>, <a href="https://assetica.net/services/financial-modelling" style="color:#012241">Financial Modelling</a>, <a href="https://assetica.net/services/tax-valuation" style="color:#012241">Tax Valuation</a>, <a href="https://assetica.net/services/strategic-value-advisory" style="color:#012241">Strategic Value Advisory</a>, <a href="https://assetica.net/services/business-structuring" style="color:#012241">Business Structuring</a>, <a href="https://assetica.net/services/building-pitch-deck" style="color:#012241">Pitch Deck</a>, <a href="https://assetica.net/services/buyer-seller-negotiation" style="color:#012241">Buyer &amp; Seller Negotiation</a>, and <a href="https://assetica.net/services/business-planning" style="color:#012241">Business Planning</a>.') + h2('Specialist Valuation Services') + intro('We also provide <a href="https://assetica.net/golden-visa-valuation" style="color:#012241">Golden Visa Business Valuation</a> for UAE residency applications (GDRFA-accepted, AED 2M+ threshold) and <a href="https://assetica.net/family-office-valuation" style="color:#012241">Family Office Valuation</a> for HNI and UHNWI families across DIFC and ADGM.') + h2('Why Assetica') + intro('Independent and credentialled: our valuations are prepared by RICS-associated advisors and accepted by UAE regulators, DIFC courts, banks, and international institutional investors. We serve clients in the UAE, GCC, UK, and Europe across 15+ countries.'),
   '/about': hs('About Assetica | Business Valuation Experts in Dubai') + intro('Assetica brings 30+ years of valuation expertise across Dubai, GCC, UK and Europe. Trusted by 500+ businesses for M&amp;A, due diligence, and strategic advisory. Our team of credentialled valuators provides independent, certified valuations accepted by regulators, courts, and institutional investors.') + h2('Our Expertise') + intro('We specialise in business valuation for M&amp;A transactions, shareholder disputes, UAE Golden Visa applications, family office portfolio reviews, financial modelling, and strategic advisory. Our valuations are accepted by UAE regulatory authorities, DIFC and ADGM courts, banks, and institutional investors across 15+ countries.') + h2('Credentials &amp; Standards') + intro('Assetica\'s valuations are prepared in accordance with RICS (Royal Institution of Chartered Surveyors) standards, IFRS, and International Valuation Standards (IVS). Reports are structured to satisfy GDRFA, ICA, FTA, DIFC, and ADGM requirements.') + h2('Our Team') + `<div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:16px"><div style="width:48px;height:48px;border-radius:50%;background:#012241;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0">BA</div><div><p style="font-weight:700;font-size:1rem;color:#012241;margin:0 0 2px">Bill Anderson</p><p style="font-size:0.85rem;color:#4BD1A0;margin:0 0 4px">Senior Valuation Advisor | RICS Associate</p><p style="font-size:0.85rem;color:#64748b;margin:0">Dubai, UAE</p><p style="font-size:0.875rem;line-height:1.65;color:#334155;margin:8px 0 0">Bill brings extensive expertise in M&amp;A valuations, Golden Visa certification, family office advisory, and DCF modelling across the UAE, GCC, and UK. As an RICS Associate, he provides independently certified valuations accepted by GDRFA, DIFC courts, and international institutional investors.</p></div></div>`,
-  '/services': hs('Business Valuation &amp; Advisory Services in Dubai') + intro('Assetica provides independent, credentialled business valuation and advisory services for companies across Dubai, UAE, GCC, UK and Europe. All services are delivered by RICS-associated advisors and accepted by UAE regulators, DIFC and ADGM courts, banks, and institutional investors.') + h2('Valuation Services') + intro('<a href="https://assetica.net/services/business-valuation" style="color:#012241;font-weight:600">Business Valuation</a> — Independent certified valuations for M&amp;A, shareholder exits, regulatory compliance, and strategic planning. <a href="https://assetica.net/services/tax-valuation" style="color:#012241;font-weight:600">Tax Valuation</a> — Transfer pricing, corporate tax compliance, and business reorganisation valuations. <a href="https://assetica.net/services/financial-modelling" style="color:#012241;font-weight:600">Financial Modelling</a> — DCF models, scenario analysis, and bank-ready financial projections.') + h2('Transaction Advisory') + intro('<a href="https://assetica.net/services/due-diligence" style="color:#012241;font-weight:600">Due Diligence</a> — Pre-acquisition financial, legal, and operational risk assessment. <a href="https://assetica.net/services/buyer-seller-negotiation" style="color:#012241;font-weight:600">Buyer &amp; Seller Negotiation</a> — Independent advisory bridging valuation gaps in business sales and acquisitions.') + h2('Strategic &amp; Growth Advisory') + intro('<a href="https://assetica.net/services/strategic-value-advisory" style="color:#012241;font-weight:600">Strategic Value Advisory</a> — Value gap analysis and value creation roadmap for businesses planning a future exit or fundraise. <a href="https://assetica.net/services/business-planning" style="color:#012241;font-weight:600">Business Planning</a> — Bankable business plans and financial projections for UAE government funding programmes. <a href="https://assetica.net/services/business-structuring" style="color:#012241;font-weight:600">Business Structuring</a> — Corporate structure optimisation for investment attractiveness and valuation uplift. <a href="https://assetica.net/services/building-pitch-deck" style="color:#012241;font-weight:600">Pitch Deck</a> — Investor-grade pitch decks backed by independent financial modelling.'),
+  '/services': hs('Business Valuation &amp; Advisory Services in Dubai') + intro('Assetica provides independent, credentialled business valuation and advisory services for companies across Dubai, UAE, GCC, UK and Europe. All services are delivered by RICS-associated advisors and accepted by UAE regulators, DIFC and ADGM courts, banks, and institutional investors.') + h2('Valuation Services') + intro('<a href="https://assetica.net/services/business-valuation" style="color:#012241;font-weight:600">Business Valuation</a> — Independent certified valuations for M&amp;A, shareholder exits, regulatory compliance, and strategic planning. <a href="https://assetica.net/services/tax-valuation" style="color:#012241;font-weight:600">Tax Valuation</a> — Transfer pricing, corporate tax compliance, and business reorganisation valuations. <a href="https://assetica.net/services/financial-modelling" style="color:#012241;font-weight:600">Financial Modelling</a> — DCF models, scenario analysis, and bank-ready financial projections.') + h2('Transaction Advisory') + intro('<a href="https://assetica.net/services/due-diligence" style="color:#012241;font-weight:600">Due Diligence</a> — Pre-acquisition financial, legal, and operational risk assessment. <a href="https://assetica.net/services/buyer-seller-negotiation" style="color:#012241;font-weight:600">Buyer &amp; Seller Negotiation</a> — Independent advisory bridging valuation gaps in business sales and acquisitions.') + h2('Strategic &amp; Growth Advisory') + intro('<a href="https://assetica.net/services/strategic-value-advisory" style="color:#012241;font-weight:600">Strategic Value Advisory</a> — Value gap analysis and value creation roadmap for businesses planning a future exit or fundraise. <a href="https://assetica.net/services/business-planning" style="color:#012241;font-weight:600">Business Planning</a> — Bankable business plans and financial projections for UAE government funding programmes. <a href="https://assetica.net/services/business-structuring" style="color:#012241;font-weight:600">Business Structuring</a> — Corporate structure optimisation for investment attractiveness and valuation uplift. <a href="https://assetica.net/services/building-pitch-deck" style="color:#012241;font-weight:600">Pitch Deck</a> — Investor-grade pitch decks backed by independent financial modelling.') + h2('Industries We Serve') + intro('Assetica serves clients across all major sectors. <a href="https://assetica.net/industries" style="color:#012241;font-weight:600">View our industries coverage</a> — Banking &amp; Financial Services, Real Estate, Manufacturing, Technology &amp; SaaS, Healthcare, Shipping &amp; Logistics, Legal &amp; Professional Services, and Government sectors.'),
   '/industries': hs('Industries We Serve') + intro('Assetica provides specialist business valuation, due diligence, and strategic advisory across eight key sectors in Dubai, UAE, GCC, and UK. Our sector-experienced advisors understand the specific valuation drivers, regulatory requirements, and market dynamics in each industry.') + h2('Banking &amp; Financial Services') + intro('Business valuations for banks, fintech companies, investment firms, and financial services businesses in the UAE. Valuations for regulatory compliance, DIFC and ADGM licensing, M&amp;A, and shareholder transactions.') + h2('Real Estate &amp; Property') + intro('Independent valuations for real estate holding companies, property development businesses, REITs, and investment vehicles. RICS-aligned methodology, accepted by UAE banks, DIFC courts, and international investors.') + h2('Manufacturing &amp; Industrial') + intro('Valuations for manufacturing businesses, industrial companies, and asset-heavy operations across the UAE and GCC. Asset-based and earnings-based approaches calibrated for capital-intensive sectors.') + h2('Technology &amp; SaaS') + intro('Specialist valuations for technology businesses, SaaS companies, and digital platforms in Dubai and across the region. Revenue multiple and DCF methodologies appropriate for high-growth, pre-profit technology companies.') + h2('Shipping &amp; Logistics') + intro('Business valuations for shipping, freight, logistics, and supply chain companies operating in the UAE, covering fleet assets, contracts, and operational earnings.') + h2('Healthcare &amp; Pharma') + intro('Independent valuations for private hospitals, clinics, pharmacies, and healthcare groups across the UAE. Valuations for acquisitions, licensing, joint ventures, and regulatory compliance.') + h2('Legal &amp; Professional Services') + intro('Valuations for law firms, consultancies, accounting practices, and professional service businesses. Goodwill, client relationship, and earnings-based approaches for partnership buyouts and M&amp;A.') + h2('Government &amp; Public Sector') + intro('Independent valuations supporting government-linked M&amp;A, privatisation, PPP transactions, and public sector asset monetisation across the UAE and GCC.'),
-  '/contact': hs('Contact Assetica') + intro('Get in touch with Assetica\'s valuation experts in Dubai &amp; London. Free initial consultation for all new clients.') + h2('Get in Touch') + intro('Call or WhatsApp: <strong>+971 52 155 1198</strong> (Mon–Fri, 9am–6pm GST). Email: <strong>info@assetica.net</strong>. We respond to all enquiries within one business day.') + h2('Our Offices') + intro('Assetica operates from Dubai, UAE and London, UK. Many valuation services can be conducted remotely. For UAE-based engagements, our advisors can visit your location in Dubai or across the Emirates.') + h2('Free Initial Consultation') + intro('We offer a free initial consultation for all new clients. During this call, we will assess your requirements, confirm the scope of work, and provide a transparent fee quotation. No obligation.'),
+  '/contact': hs('Contact Assetica') + intro('Get in touch with Assetica\'s valuation experts in Dubai &amp; London. Free initial consultation for all new clients.') + h2('Get in Touch') + intro('Call or WhatsApp: <strong>+971 52 979 8302</strong> (Mon–Fri, 9am–6pm GST). Email: <strong>info@assetica.net</strong>. We respond to all enquiries within one business day.') + h2('Our Offices') + intro('Assetica operates from Dubai, UAE and London, UK. Many valuation services can be conducted remotely. For UAE-based engagements, our advisors can visit your location in Dubai or across the Emirates.') + h2('Free Initial Consultation') + intro('We offer a free initial consultation for all new clients. During this call, we will assess your requirements, confirm the scope of work, and provide a transparent fee quotation. No obligation.'),
   '/golden-visa-valuation': hs('Golden Visa Business Valuation UAE | GDRFA-Compliant') + def('A UAE Golden Visa business valuation is a certified, independent assessment of a business owner\'s company value prepared specifically for UAE Golden Visa applications. The minimum qualifying threshold is AED 2 million. Reports must be prepared by an independent valuation firm and accepted by the General Directorate of Residency and Foreigners Affairs (GDRFA).') + intro('Certified business valuation for UAE Golden Visa applications. GDRFA-accepted reports delivered in 5 to 7 business days. AED 2M+ threshold confirmed. Free consultation.') + '<div style="margin-top:20px">' + faqBlock([
     { q: 'What is the minimum business valuation for UAE Golden Visa?', a: 'The UAE Golden Visa for business owners requires a minimum business valuation of AED 2 million (approximately USD 545,000). Assetica provides GDRFA-accepted certified valuation reports confirming this threshold.' },
     { q: 'How long does a Golden Visa valuation report take?', a: 'Assetica typically delivers certified Golden Visa valuation reports within 5 to 7 business days, depending on the complexity of the business and availability of financial records.' },
@@ -834,12 +817,13 @@ const staticPreRender = {
     { q: 'What valuation methods does Assetica use for Golden Visa reports?', a: 'We use Income Approach (DCF), Market Approach (comparable transactions), and Asset-Based Approach depending on the business type. The most appropriate method is selected to maximise defensibility before authorities.' },
     { q: 'What is the difference between property valuation and business valuation for UAE Golden Visa?', a: 'Property valuation for UAE Golden Visa applies to real estate investors and is handled by RERA-approved property valuers through the Dubai Land Department. Business valuation for UAE Golden Visa applies to business owners and is conducted by independent certified valuation firms like Assetica. If you own a business rather than (or in addition to) property, you need a certified business valuation — not a property valuation — to satisfy the AED 2 million threshold for the Golden Visa.' },
   ]) + '</div>',
+  '/how-much-is-my-business-worth-dubai': hs('How Much is My Business Worth in Dubai?') + authorAttr() + directAnswer('A Dubai business is typically worth 3x\u20136x its annual EBITDA for service businesses, or 1x\u20133x annual revenue for early-stage companies. The exact value depends on industry, profitability, growth rate, customer concentration, and current UAE market conditions. Most SMEs in Dubai are valued between AED 500,000 and AED 50 million.') + intro('This guide covers EBITDA multiples by industry, DCF methodology, UAE-specific valuation factors, and how to calculate your business value in Dubai in 2026.') + h2('UAE Business Valuation Multiples by Industry 2026') + dataTable('UAE Business Valuation Multiples by Industry (Assetica, 2026)', ['Industry', 'EBITDA Multiple', 'Revenue Multiple'], [['Technology &amp; SaaS', '8x \u2013 15x', '3x \u2013 8x'], ['Financial Services', '6x \u2013 12x', '2x \u2013 5x'], ['Healthcare &amp; Medical', '6x \u2013 10x', '1.5x \u2013 4x'], ['Real Estate &amp; Property', '5x \u2013 10x', '1x \u2013 3x'], ['Manufacturing', '4x \u2013 8x', '0.5x \u2013 2x'], ['Retail &amp; E-commerce', '3x \u2013 7x', '0.3x \u2013 1.5x'], ['Professional Services', '4x \u2013 8x', '1x \u2013 3x'], ['F&amp;B &amp; Hospitality', '3x \u2013 6x', '0.5x \u2013 1.5x'], ['Logistics &amp; Transport', '4x \u2013 7x', '0.5x \u2013 1.5x'], ['Construction', '3x \u2013 6x', '0.3x \u2013 1x']]) + h2('How to Calculate Your Business Value in Dubai') + intro('Step 1: Gather three years of audited financial statements. Step 2: Calculate normalised EBITDA (adjust for one-off items and owner costs). Step 3: Apply the appropriate industry EBITDA multiple. Step 4: Cross-check with a revenue multiple. Step 5: Deduct net debt to arrive at equity value. Step 6: Obtain a certified report from Assetica for legal or regulatory purposes.') + h2('UAE-Specific Valuation Factors') + intro('Business value in Dubai is also affected by: trade licence type (mainland vs free zone); UAE corporate tax position (9% since June 2023); DIFC/ADGM regulatory standing; visa and labour compliance; customer base composition (local vs international); and real estate assets held in the UAE.') + '<div style="margin-top:20px">' + faqBlock([{ q: 'How much is my business worth in Dubai?', a: 'A Dubai business is typically valued at 3x\u20136x annual EBITDA for profitable service businesses, or 1x\u20133x annual revenue for early-stage companies. Most SMEs in Dubai are valued between AED 500,000 and AED 50 million. Technology and SaaS businesses achieve the highest multiples (8x\u201315x EBITDA).' }, { q: 'What is the minimum business value for UAE Golden Visa?', a: 'The minimum business value for the UAE Golden Visa investor category is AED 2,000,000 (approximately USD 545,000). This must be confirmed by an independent certified valuation report accepted by the GDRFA or ICA.' }, { q: 'What businesses are worth the most in Dubai?', a: 'Technology and SaaS companies (8x\u201315x EBITDA), financial services and fintech (6x\u201312x), healthcare (6x\u201310x), and real estate businesses (5x\u201310x) command the highest multiples in Dubai.' }]) + '</div>',
   '/family-office-valuation': hs('Family Office Valuation Services | DIFC &amp; ADGM') + def('A family office valuation is an independent, comprehensive assessment of all assets held by a family office, including private equity stakes, real estate, business interests, investment portfolios and intangible assets. It provides a single net worth picture essential for wealth governance, succession planning and regulatory compliance.') + intro('Independent valuation services for family offices across DIFC, ADGM and the GCC. Portfolio valuation, succession planning, real estate, private equity and estate valuations for HNI and UHNWI families.') + h2('What Assetica Values for Family Offices') + intro('We provide independent valuations for: operating businesses and trading companies; private equity and venture capital fund interests; real estate portfolios and SPVs; fixed income and alternative investment holdings; intangible assets including brands, intellectual property, and goodwill; and inter-generational transfer transactions requiring arm\'s-length certified values for DIFC Wills Service and estate planning.') + h2('Why DIFC and ADGM Family Offices Choose Assetica') + intro('Our valuations are prepared under RICS, IFRS, and IVS standards — the frameworks required by DIFC and ADGM regulatory authorities. We have experience with multi-jurisdiction mandates spanning UAE, UK, Saudi Arabia, India, Singapore, and Europe, and provide reports in the format required by investment committees, trustees, and regulators.') + '<div style="margin-top:20px">' + faqBlock([
     { q: 'Why do family offices in DIFC and ADGM need independent valuations?', a: 'DIFC and ADGM regulations require family offices to maintain accurate records of asset values for governance, reporting and compliance purposes. Independent valuations also support investment committee decisions, beneficiary distributions and inter-generational wealth transfers.' },
     { q: 'How often should a family office update its valuations?', a: 'Best practice is annual valuation updates for governance and reporting, with interim updates triggered by major transactions, market dislocations, succession events or regulatory reviews. Assetica offers retainer-based relationships for ongoing valuation support.' },
     { q: 'Does Assetica handle cross-border family office mandates?', a: 'Yes. Assetica has experience with family offices holding assets across UAE, UK, Saudi Arabia, India, Singapore and Europe. We coordinate multi-jurisdiction valuations and apply locally accepted standards (RICS, IFRS, IVS) in each market.' },
   ]) + '</div>',
-  '/blog': hs('Assetica Business Valuation Blog') + intro('Expert insights on business valuation, M&amp;A, due diligence and financial advisory from Assetica\'s team in Dubai, UAE &amp; UK. Written by Bill Anderson, Senior Valuation Advisor and RICS Associate.') + h2('Latest Articles') + `<ul style="list-style:none;padding:0;margin:0"><li style="margin-bottom:10px"><a href="https://assetica.net/blog/navigating-business-valuation-buying-running-business" style="color:#012241;font-weight:600;font-size:0.9rem">Navigating the World of Business Valuation: A Step-by-Step Guide to Buying a Running Business</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/navigating-business-risks-strategic-value-advisory" style="color:#012241;font-weight:600;font-size:0.9rem">Navigating Business Risks: Effective Risk Management through Strategic Value Advisory</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/selling-a-business-optimal-timing" style="color:#012241;font-weight:600;font-size:0.9rem">Selling a Business? Here's How to Determine the Optimal Timing</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/mitigating-risks-business-valuation" style="color:#012241;font-weight:600;font-size:0.9rem">Safeguard Your Company: Mitigating Risks in Business Valuation</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/how-to-create-a-pitch-deck" style="color:#012241;font-weight:600;font-size:0.9rem">How to Create a Pitch Deck: A Step-by-Step Guide</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/maximize-business-potential-financial-valuations" style="color:#012241;font-weight:600;font-size:0.9rem">Maximise Your Business Potential with Precise Financial Valuations</a></li></ul>`,
+  '/blog': hs('Assetica Business Valuation Blog') + intro('Expert insights on business valuation, M&amp;A, due diligence and financial advisory from Assetica\'s team in Dubai, UAE &amp; UK. Written by Bill Anderson, Senior Valuation Advisor and RICS Associate.') + h2('Latest Articles') + `<ul style="list-style:none;padding:0;margin:0"><li style="margin-bottom:10px"><a href="https://assetica.net/blog/navigating-business-valuation-buying-running-business" style="color:#012241;font-weight:600;font-size:0.9rem">Navigating the World of Business Valuation: A Step-by-Step Guide to Buying a Running Business</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/navigating-business-risks-strategic-value-advisory" style="color:#012241;font-weight:600;font-size:0.9rem">Navigating Business Risks: Effective Risk Management through Strategic Value Advisory</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/selling-a-business-optimal-timing" style="color:#012241;font-weight:600;font-size:0.9rem">Selling a Business? Here's How to Determine the Optimal Timing</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/mitigating-risks-business-valuation" style="color:#012241;font-weight:600;font-size:0.9rem">Safeguard Your Company: Mitigating Risks in Business Valuation</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/how-to-create-a-pitch-deck" style="color:#012241;font-weight:600;font-size:0.9rem">How to Create a Pitch Deck: A Step-by-Step Guide</a></li><li style="margin-bottom:10px"><a href="https://assetica.net/blog/maximize-business-potential-financial-valuations" style="color:#012241;font-weight:600;font-size:0.9rem">Maximise Your Business Potential with Precise Financial Valuations</a></li></ul>` + h2('Browse by Category') + `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px"><a href="https://assetica.net/blog/category/business-valuation" style="font-size:0.8rem;padding:5px 12px;border:1px solid #e2e8f0;border-radius:20px;color:#012241;text-decoration:none;background:#f8fafc">Business Valuation</a><a href="https://assetica.net/blog/category/strategic-advisory" style="font-size:0.8rem;padding:5px 12px;border:1px solid #e2e8f0;border-radius:20px;color:#012241;text-decoration:none;background:#f8fafc">Strategic Advisory</a><a href="https://assetica.net/blog/category/business-sale" style="font-size:0.8rem;padding:5px 12px;border:1px solid #e2e8f0;border-radius:20px;color:#012241;text-decoration:none;background:#f8fafc">Business Sale</a><a href="https://assetica.net/blog/category/risk-management" style="font-size:0.8rem;padding:5px 12px;border:1px solid #e2e8f0;border-radius:20px;color:#012241;text-decoration:none;background:#f8fafc">Risk Management</a><a href="https://assetica.net/blog/category/pitch-deck" style="font-size:0.8rem;padding:5px 12px;border:1px solid #e2e8f0;border-radius:20px;color:#012241;text-decoration:none;background:#f8fafc">Pitch Deck</a><a href="https://assetica.net/blog/category/financial-valuation" style="font-size:0.8rem;padding:5px 12px;border:1px solid #e2e8f0;border-radius:20px;color:#012241;text-decoration:none;background:#f8fafc">Financial Valuation</a></div>`,
 };
 
 for (const route of staticRoutes) {
@@ -847,18 +831,18 @@ for (const route of staticRoutes) {
 }
 
 for (const svc of serviceRoutes) {
-  const svcFaqs = servicePreRenderData[svc.slug]?.faqs || [];
+  // FAQPage schema is NOT injected here — ServiceDetail.tsx passes it via SEOHead schema prop.
+  // Injecting from both SSG and React causes "Duplicate field FAQPage" in GSC rich results.
   writeRoute(`/services/${svc.slug}`, {
     title: svc.title,
-    description: truncateDesc(svc.intro),
+    description: svc.description ? svc.description : truncateDesc(svc.intro),
     canonical: `/services/${svc.slug}`,
     schemas: [
-      serviceSchema(svc.title.replace(' | Assetica', ''), truncateDesc(svc.intro), `${BASE_URL}/services/${svc.slug}`),
-      ...(svcFaqs.length ? [faqSchema(svcFaqs)] : []),
+      serviceSchema(svc.title.replace(' | Assetica', ''), truncateDesc(svc.intro), `${BASE_URL}/services/${svc.slug}/`),
       breadcrumb([
         { name: 'Home', item: `${BASE_URL}/` },
-        { name: 'Services', item: `${BASE_URL}/services` },
-        { name: svc.title.replace(' Services in Dubai & UAE | Assetica', '').replace(' in Dubai & UAE | Assetica', '').replace(' | Assetica', ''), item: `${BASE_URL}/services/${svc.slug}` },
+        { name: 'Services', item: `${BASE_URL}/services/` },
+        { name: svc.title.replace(' Services in Dubai & UAE | Assetica', '').replace(' in Dubai & UAE | Assetica', '').replace(' | Assetica', ''), item: `${BASE_URL}/services/${svc.slug}/` },
       ]),
     ],
   }, buildServicePreRender(svc.slug));
@@ -870,14 +854,9 @@ for (const post of blogRoutes) {
     description: truncateDesc(post.excerpt),
     canonical: `/blog/${post.slug}`,
     ogType: 'article',
-    schemas: [
-      blogPostingSchema(post),
-      breadcrumb([
-        { name: 'Home', item: `${BASE_URL}/` },
-        { name: 'Blog', item: `${BASE_URL}/blog` },
-        { name: post.title, item: `${BASE_URL}/blog/${post.slug}` },
-      ]),
-    ],
+    // Page-specific schemas (BlogPosting, BreadcrumbList) are managed by
+    // BlogPost.tsx via SEOHead — removing here to prevent GSC duplicate schema errors.
+    schemas: [],
   }, buildBlogPreRender(post.slug, post));
 }
 

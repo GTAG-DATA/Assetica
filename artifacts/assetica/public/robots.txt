@@ -36,3 +36,6 @@ User-agent: Applebot
 Allow: /
 
 Sitemap: https://assetica.net/sitemap.xml
+
+# AI/LLM crawlers — machine-readable content index
+# LLMs: https://assetica.net/llms.txt

@@ -12,6 +12,7 @@ import BlogPost from "@/pages/BlogPost";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import GoldenVisaValuation from "@/pages/GoldenVisaValuation";
 import FamilyOfficeValuation from "@/pages/FamilyOfficeValuation";
+import BusinessWorthDubai from "@/pages/BusinessWorthDubai";
 import NotFound from "@/pages/NotFound";
 import BlogCategory from "@/pages/BlogCategory";
 import Admin from "@/pages/Admin";
@@ -25,7 +26,16 @@ if ('scrollRestoration' in window.history) {
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useLayoutEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }, [pathname]);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    // Track SPA page navigation in GA4
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: pathname,
+        page_location: window.location.href,
+      });
+    }
+  }, [pathname]);
   return null;
 }
 
@@ -52,6 +62,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/golden-visa-valuation" element={<GoldenVisaValuation />} />
           <Route path="/family-office-valuation" element={<FamilyOfficeValuation />} />
+          <Route path="/how-much-is-my-business-worth-dubai" element={<BusinessWorthDubai />} />
           <Route path="/blog/category/:category" element={<BlogCategory />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />

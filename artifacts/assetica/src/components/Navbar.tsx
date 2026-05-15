@@ -53,13 +53,13 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="tel:+971521551198"
+            href="tel:+971529798302"
             className="flex items-center gap-2 text-sm font-semibold text-[#012241] hover:text-[#4BD1A0] transition-colors"
           >
             <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: "#4BD1A0" }}>
               <Phone className="w-3.5 h-3.5 text-white" />
             </div>
-            +971 52 155 1198
+            +971 52 979 8302
           </a>
           <Link
             to="/contact"
@@ -72,7 +72,12 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-[#012241] p-1">
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="lg:hidden text-[#012241] p-1"
+          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={mobileOpen}
+        >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -95,8 +100,8 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <a href="tel:+971521551198" className="flex items-center gap-2 text-sm font-semibold text-[#012241]">
-                <Phone className="w-4 h-4" /> +971 52 155 1198
+              <a href="tel:+971529798302" className="flex items-center gap-2 text-sm font-semibold text-[#012241]">
+                <Phone className="w-4 h-4" /> +971 52 979 8302
               </a>
               <Link
                 to="/contact"

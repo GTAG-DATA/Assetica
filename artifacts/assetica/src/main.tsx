@@ -9,10 +9,14 @@ createRoot(document.getElementById("root")!).render(
   </HelmetProvider>
 );
 
-// Remove SSG pre-render content once React mounts
+// Remove SSG pre-render content and static head tags once React/Helmet mounts
 requestAnimationFrame(() => {
   requestAnimationFrame(() => {
+    // Remove the visually-hidden prerender block
     const el = document.getElementById('seo-prerender');
     if (el) el.remove();
+
+    // Remove static canonical injected by SSG (Helmet manages its own with data-rh)
+    document.querySelectorAll('link[rel="canonical"]:not([data-rh])').forEach(n => n.remove());
   });
 });

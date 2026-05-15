@@ -1,176 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
     <loc>https://assetica.net/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Core pages -->
   <url>
-    <loc>https://assetica.net/about</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/about/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://assetica.net/services</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/services/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://assetica.net/services/business-valuation</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/due-diligence</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/business-structuring</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/building-pitch-deck</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/financial-modelling</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/buyer-seller-negotiation</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/tax-valuation</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/strategic-value-advisory</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/services/business-planning</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/industries</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/industries/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/contact/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Service pages -->
+  <url>
+    <loc>https://assetica.net/services/business-valuation/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/due-diligence/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/business-structuring/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/building-pitch-deck/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/financial-modelling/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/buyer-seller-negotiation/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/tax-valuation/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/strategic-value-advisory/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/services/business-planning/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Specialist landing pages -->
+  <url>
+    <loc>https://assetica.net/golden-visa-valuation/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://assetica.net/family-office-valuation/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Valuation guides -->
+  <url>
+    <loc>https://assetica.net/how-much-is-my-business-worth-dubai/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog hub -->
+  <url>
+    <loc>https://assetica.net/blog/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Blog posts -->
   <url>
-    <loc>https://assetica.net/contact</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/golden-visa-business-valuation-2026-guide/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/navigating-business-valuation-buying-running-business</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/blog/navigating-business-risks-strategic-value-advisory</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/navigating-business-valuation-buying-running-business/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/selling-a-business-optimal-timing</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/navigating-business-risks-strategic-value-advisory/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/mitigating-risks-business-valuation</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/selling-a-business-optimal-timing/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/how-to-create-a-pitch-deck</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/mitigating-risks-business-valuation/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://assetica.net/golden-visa-valuation</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/family-office-valuation</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://assetica.net/blog/maximize-business-potential-financial-valuations</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/how-to-create-a-pitch-deck/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/category/business-valuation</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/maximize-business-potential-financial-valuations/</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog category pages -->
+  <url>
+    <loc>https://assetica.net/blog/category/business-valuation/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/category/strategic-advisory</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/category/strategic-advisory/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/category/business-sale</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/category/business-sale/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/category/risk-management</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/category/risk-management/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/category/pitch-deck</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/category/pitch-deck/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://assetica.net/blog/category/financial-valuation</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://assetica.net/blog/category/financial-valuation/</loc>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

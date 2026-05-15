@@ -31,7 +31,7 @@ const PrivacyPolicy = () => (
             { title: "Data Security", body: "We implement appropriate technical and organisational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure." },
             { title: "Cookies", body: "We use cookies on our website to see how you interact with it. By accepting cookies, you agree to our use of such cookies. You can choose to decline cookies, though this may affect your experience of our website." },
             { title: "Your Rights", body: "You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your information. To exercise these rights, please contact us at info@assetica.net." },
-            { title: "Contact Us", body: "If you have questions about this Privacy Policy or our privacy practices, please contact us at: info@assetica.net | +971 52 155 1198 | Dubai, UAE & London, UK." },
+            { title: "Contact Us", body: "If you have questions about this Privacy Policy or our privacy practices, please contact us at: info@assetica.net | +971 52 979 8302 | Dubai, UAE & London, UK." },
           ].map(s => (
             <div key={s.title} className="mb-8 last:mb-0">
               <h2 className="font-display font-bold text-lg mb-3" style={{ color: "#012241" }}>{s.title}</h2>

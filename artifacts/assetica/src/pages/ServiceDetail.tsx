@@ -15,7 +15,7 @@ const services: Record<string, {
 }> = {
   "business-valuation": {
     title: "Business Valuation", subtitle: "Independent Business & Company Valuation",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1800&q=80",
+    image: "/business-valuation-hero.webp",
     definition: "Business valuation in the UAE is the process of determining the economic worth of a company using internationally recognised methodologies including Discounted Cash Flow (DCF) analysis, market comparables, and the net asset value approach. In Dubai and across the GCC, independent business valuations are required for M&A transactions, shareholder disputes, DIFC and ADGM court proceedings, UAE Golden Visa applications, bank financing, corporate restructuring, and strategic exit planning. Assetica delivers certified, defensible valuations accepted by UAE regulatory authorities, courts, and institutional investors.",
     intro: "Assetica delivers independent, credible business valuations for companies across the UAE, UK, GCC, and internationally. Whether you are raising capital, planning an exit, resolving a shareholder dispute, or meeting a regulatory requirement, our valuations provide the rigour and defensibility your situation demands.",
     points: ["Independent certified business valuations","Discounted cash flow (DCF) and market multiples analysis","Valuation for fundraising and investor negotiations","Merger and acquisition (M&A) valuations","Exit planning and shareholder exit valuations","Shareholder dispute and litigation support valuations","Regulatory and compliance valuations","Goodwill and intangible asset valuations"],
@@ -224,7 +224,7 @@ const ServiceDetail = () => {
     "description": svc.intro,
     "provider": { "@type": "Organization", "name": "Assetica", "url": "https://assetica.net" },
     "areaServed": ["AE", "GB", "SA", "EU"],
-    "url": `https://assetica.net/services/${slug}`
+    "url": `https://assetica.net/services/${slug}/`
   } : null;
 
   const faqSchema = svc && svc.faqs?.length ? {
@@ -242,8 +242,8 @@ const ServiceDetail = () => {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://assetica.net" },
-      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://assetica.net/services" },
-      { "@type": "ListItem", "position": 3, "name": svc.title, "item": `https://assetica.net/services/${slug}` }
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://assetica.net/services/" },
+      { "@type": "ListItem", "position": 3, "name": svc.title, "item": `https://assetica.net/services/${slug}/` }
     ]
   } : null;
 
@@ -373,8 +373,8 @@ const ServiceDetail = () => {
                 <Link to="/contact" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full font-bold text-sm" style={{ backgroundColor: "#4BD1A0", color: "#012241" }}>
                   Get in Touch <ArrowUpRight className="w-4 h-4" />
                 </Link>
-                <a href="tel:+971521551198" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full font-semibold text-sm mt-2 border border-white/20 text-white">
-                  +971 52 155 1198
+                <a href="tel:+971529798302" className="flex items-center justify-center gap-2 w-full py-2.5 rounded-full font-semibold text-sm mt-2 border border-white/20 text-white">
+                  +971 52 979 8302
                 </a>
               </div>
             </AnimatedSection>

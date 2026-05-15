@@ -118,8 +118,8 @@ const BlogPost = () => {
               <Link to="/contact" className="inline-flex items-center gap-2 text-white px-6 py-2.5 rounded-full font-semibold text-sm" style={{ backgroundColor: "#012241" }}>
                 Get in Touch <ArrowUpRight className="w-4 h-4" />
               </Link>
-              <a href="tel:+971521551198" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-full border" style={{ color: "#4BD1A0", borderColor: "#4BD1A0" }}>
-                +971 52 155 1198
+              <a href="tel:+971529798302" className="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2.5 rounded-full border" style={{ color: "#4BD1A0", borderColor: "#4BD1A0" }}>
+                +971 52 979 8302
               </a>
             </div>
           </div>

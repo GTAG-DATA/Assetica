@@ -20,11 +20,14 @@ export default function SEOHead({
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
-  schema,
   noIndex = false,
+  schema,
 }: SEOHeadProps) {
   const fullTitle = title.includes("Assetica") ? title : `${title} | Assetica`;
-  const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : BASE_URL;
+  // Always trailing slash — Cloudflare Pages 308-redirects non-trailing-slash URLs
+  const canonicalUrl = canonical
+    ? `${BASE_URL}${canonical === "/" ? "/" : canonical + "/"}`
+    : BASE_URL + "/";
 
   const schemas = schema
     ? Array.isArray(schema)
@@ -33,34 +36,41 @@ export default function SEOHead({
     : [];
 
   return (
-    <Helmet>
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+    <>
+      {/*
+        <link rel="canonical"> uses React 19 native hoisting — more reliable
+        than react-helmet-async v3 for link tags in React 19.
+        <title> and <meta> use Helmet which correctly REPLACES the SSG-injected
+        tags during hydration (React 19 native <title> was adding a duplicate).
+      */}
       <link rel="canonical" href={canonicalUrl} />
 
-      {/* Open Graph */}
-      <meta property="og:type" content={ogType} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <Helmet>
+        <title>{fullTitle}</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content={SITE_NAME} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
 
-      {/* JSON-LD Structured Data */}
-      {schemas.map((s, i) => (
-        <script key={i} type="application/ld+json">
-          {JSON.stringify(s)}
-        </script>
-      ))}
-    </Helmet>
+        {/* JSON-LD Structured Data */}
+        {schemas.map((s, i) => (
+          <script key={i} type="application/ld+json">
+            {JSON.stringify(s)}
+          </script>
+        ))}
+      </Helmet>
+    </>
   );
 }

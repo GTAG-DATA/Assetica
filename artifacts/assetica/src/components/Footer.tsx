@@ -13,11 +13,10 @@ const insights = [
 ];
 
 const services = [
+  { name: "Business Valuation", slug: "business-valuation" },
   { name: "Due Diligence", slug: "due-diligence" },
   { name: "Business Structuring", slug: "business-structuring" },
-  { name: "Building Pitch Deck", slug: "building-pitch-deck" },
   { name: "Financial Modelling", slug: "financial-modelling" },
-  { name: "Buyer & Seller Negotiation", slug: "buyer-seller-negotiation" },
   { name: "Tax Valuation", slug: "tax-valuation" },
   { name: "Strategic Value Advisory", slug: "strategic-value-advisory" },
   { name: "Business Planning", slug: "business-planning" },
@@ -57,8 +56,8 @@ const Footer = () => (
             ))}
           </div>
           <div className="flex flex-col gap-3 text-sm" style={{ color: "rgba(226,232,240,0.65)" }}>
-            <a href="tel:+971521551198" className="flex items-center gap-2 hover:text-[#4BD1A0] transition-colors">
-              <Phone className="w-4 h-4 text-[#4BD1A0]" /> +971 52 155 1198
+            <a href="tel:+971529798302" className="flex items-center gap-2 hover:text-[#4BD1A0] transition-colors">
+              <Phone className="w-4 h-4 text-[#4BD1A0]" /> +971 52 979 8302
             </a>
             <a href="mailto:info@assetica.net" className="flex items-center gap-2 hover:text-[#4BD1A0] transition-colors">
               <Mail className="w-4 h-4 text-[#4BD1A0]" /> info@assetica.net
@@ -109,6 +108,9 @@ const Footer = () => (
               { name: "Home", path: "/" },
               { name: "About Us", path: "/about" },
               { name: "Services", path: "/services" },
+              { name: "Industries", path: "/industries" },
+              { name: "Golden Visa Valuation", path: "/golden-visa-valuation" },
+              { name: "Family Office Valuation", path: "/family-office-valuation" },
               { name: "Blog", path: "/blog" },
               { name: "Contact Us", path: "/contact" },
               { name: "Privacy Policy", path: "/privacy-policy" },

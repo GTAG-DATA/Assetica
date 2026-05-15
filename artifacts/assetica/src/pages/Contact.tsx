@@ -11,7 +11,7 @@ const heroImg = "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?au
 const contactFaqs = [
   {
     q: "How quickly will Assetica respond to my enquiry?",
-    a: "We aim to respond to all enquiries within one business day. For urgent valuation requirements, please call us directly at +971 52 155 1198 and we will prioritise your request.",
+    a: "We aim to respond to all enquiries within one business day. For urgent valuation requirements, please call us directly at +971 52 979 8302 and we will prioritise your request.",
   },
   {
     q: "Is there a charge for an initial consultation?",
@@ -36,7 +36,7 @@ const contactPageSchema = {
   "mainEntity": {
     "@type": "Organization",
     "name": "Assetica",
-    "telephone": "+971521551198",
+    "telephone": "+971529798302",
     "email": "info@assetica.net",
     "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" },
     "openingHours": "Mo-Fr 09:00-18:00"
@@ -102,8 +102,8 @@ const Contact = () => (
                 {
                   icon: Phone,
                   label: "Phone / WhatsApp",
-                  value: "+971 52 155 1198",
-                  href: "tel:+971521551198",
+                  value: "+971 52 979 8302",
+                  href: "tel:+971529798302",
                   sub: "Available Mon–Fri, 9am–6pm GST",
                 },
                 {
