@@ -39,4 +39,21 @@ Whether you're planning an exit, raising investment, resolving a shareholder dis
 - Fast turnaround with clear, actionable reports
 - Serving clients across Dubai, GCC, UK, and Europe
 
+## Frequently Asked Questions
+
+**How long does a business valuation take in Dubai?**
+Most business valuations in Dubai and the UAE are completed within 2 to 4 weeks, depending on the complexity of the business and availability of financial information.
+
+**What documents are required for a business valuation?**
+We typically require 3 years of financial statements, tax returns, shareholder agreements, customer contracts, and any other relevant operational or legal documents.
+
+**Is Assetica’s valuation accepted for Golden Visa applications?**
+Yes. Our business valuations are fully GDRFA-accepted and meet the AED 2 million threshold requirement for UAE Golden Visa applications.
+
+**How much does a professional business valuation cost in the UAE?**
+The cost varies depending on the size, complexity, and purpose of the valuation. We provide transparent, fixed-fee quotes after an initial consultation.
+
+**Can you provide valuations for UK and European companies?**
+Yes. We regularly deliver valuations for UK and European businesses, ensuring compliance with local regulations and international standards (IFRS, RICS, IVS).
+
 **Ready to understand the true value of your business?** Book a free consultation today.
